@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ELECTRIC VEHICLES</title>
+    <!-- Boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css">
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- JS -->
+    <script type="text/javascript" src="static/js/logic.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Orbitron">
+
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Orbitron", sans-serif}
+      body {font: size 14px;}
+      .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+      .w3-half img:hover{opacity:1}
+</style>
+</head>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">EVnavbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item active">
+          <a class="nav-link" href="/">Home
+            <span class="visually-hidden"></span>
+          </a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/visualizations">Visualizations</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/predictions">Predictions</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/analysis">Analysis</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/data">Data</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/resources">Resources</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="/team">Team</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+      
+      <a href="/home"></a>
+    <hr style="color:blue; border-width: 3px;">
+    <div >
+        <h1>EV Price Prediction using Machine Learning</h1>
+    </div>
+    <div>
+        <p>This page uses a Random Forest machine learning model to predict the price of an electric vehicle. The model was trained on data that included numerous electric vehicles, their prices and the features of each car.</p>
+        <ul>
+            <li>Accleration - Time it takes for the car to reach 60 mph</li>
+            <li>Top Miles Per Hour - The top speed of the car</li>
+            <li>Range - The amount of miles a vehicle can travel on a full charge</li>
+            <li>Number of Seats - The amount of seats in the vehicle</li>
+            <li>Fast Charge - The amount of miles added to the range with an hour long charge</li>
+            <li>Body Style - Shape of the vehicle</li>
+            <li>Drive - The powered axle on the vehicle</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="card border-primary mb-3" style="max-width: 200rem;">
+            <div class="card-header">FILTERS</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- <div class="form-group">
+                            <label class="col-form-label" for="gender">Gender</label>
+                            <select id="gender">
+                                <option value="1">Female</option>
+                                <option value="0">Male</option>
+                            </select> -->
+                        
+                        <div class="form-group">
+                            <label class="col-form-label" for="acc">Acceleration (seconds)</label>
+                            <input type="text" class="form-control" value="5.0" id="acc">
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="mph">Top Miles Per Hour</label>
+                            <input type="text" class="form-control" value="120.0" id="mph">
+                        </div>
+                        <div class="form-group">
+                          <label class="col-form-label" for="range">Range (miles)</label>
+                          <input type="text" class="form-control" value="300.0" id="range">
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-form-label" for="seats">Number of Seats</label>
+                            <input type="text" class="form-control" value="5" id="seats">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-form-label" for="seats">Fast Charge (Miles) </label>
+                                <input type="text" class="form-control" value="200" id="fast_charge">
+                            </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="body_style">Body Style</label>
+                            <select id="body_style">
+                                <option value="1">Hatchback</option>
+                                <option value="2">SUV</option>
+                                <option value="3">Sedan</option>
+                                <option value="4">Pick Up</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label" for="drive">Drive</label>
+                            <select id="drive">
+                                <option value="RWD">Rear Wheel Drive</option>
+                                <option value="FWD">Forward Wheel Drive</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-primary" id="filter">PREDICT PRICE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <hr style="color:lightgray; border-width: 3px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 id="output"></h1>
+                
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+
+  </html>
+  
+  </html>
